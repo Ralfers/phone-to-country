@@ -1,10 +1,10 @@
-package org.example.controller;
+package org.example.phonetocountry.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.exception.ApiException;
-import org.example.exception.ValidationException;
-import org.example.model.ApiErrors;
-import org.example.model.ValidationErrors;
+import org.example.phonetocountry.exception.ApiException;
+import org.example.phonetocountry.exception.ValidationException;
+import org.example.phonetocountry.model.ApiErrors;
+import org.example.phonetocountry.model.ValidationErrors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

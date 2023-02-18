@@ -1,8 +1,8 @@
-package org.example.exception;
+package org.example.phonetocountry.exception;
 
 import lombok.Getter;
-import org.example.model.ValidationError;
-import org.example.model.ValidationErrors;
+import org.example.phonetocountry.model.ValidationError;
+import org.example.phonetocountry.model.ValidationErrors;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 

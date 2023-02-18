@@ -1,8 +1,8 @@
-package org.example.exception;
+package org.example.phonetocountry.exception;
 
 import lombok.Getter;
-import org.example.model.ApiError;
-import org.example.model.ApiErrors;
+import org.example.phonetocountry.model.ApiError;
+import org.example.phonetocountry.model.ApiErrors;
 import org.springframework.http.HttpStatus;
 
 @Getter

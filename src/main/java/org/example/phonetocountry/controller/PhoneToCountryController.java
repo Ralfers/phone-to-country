@@ -1,13 +1,13 @@
-package org.example.controller;
+package org.example.phonetocountry.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.exception.ApiException;
-import org.example.exception.ValidationException;
-import org.example.model.CountryCodeRequest;
-import org.example.model.CountryCodeResponse;
-import org.example.service.PhoneToCountryService;
+import org.example.phonetocountry.exception.ApiException;
+import org.example.phonetocountry.exception.ValidationException;
+import org.example.phonetocountry.model.CountryCodeRequest;
+import org.example.phonetocountry.model.CountryCodeResponse;
+import org.example.phonetocountry.service.PhoneToCountryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;

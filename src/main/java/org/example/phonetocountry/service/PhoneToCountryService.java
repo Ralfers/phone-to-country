@@ -1,7 +1,7 @@
-package org.example.service;
+package org.example.phonetocountry.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.properties.PhoneToCountryProperties;
+import org.example.phonetocountry.properties.PhoneToCountryProperties;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,7 +11,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -67,12 +66,14 @@ public class PhoneToCountryService {
         }
 
         addMissingCallingCodes();
+
+        log.debug("Loaded calling code country map: {}", callingCodeToCountryMap);
     }
 
     private void parseTableCell(Element tableCell) {
         Matcher tableCellMatcher = CALLING_CODE_ENTRY_PATTERN.matcher(tableCell.text());
         tableCellMatcher.results().forEach(matchResult -> {
-            String callingCode = matchResult.group(1);
+            String callingCode = matchResult.group(1).replaceAll("\\s", "");
             String countryCodes = matchResult.group(2);
             callingCodeToCountryMap.put(callingCode, Arrays.asList(countryCodes.split(",\\s*")));
         });

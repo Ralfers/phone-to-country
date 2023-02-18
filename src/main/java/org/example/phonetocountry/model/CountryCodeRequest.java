@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.phonetocountry.model;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;

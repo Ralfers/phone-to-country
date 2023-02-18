@@ -1,4 +1,4 @@
-package org.example.properties;
+package org.example.phonetocountry.properties;
 
 import lombok.Getter;
 import lombok.Setter;
