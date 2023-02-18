@@ -2,9 +2,10 @@ server:
   port: 9005
 
 logging:
-  root: INFO
-  org.springframework: INFO
-  com.example: DEBUG
+  level:
+    root: INFO
+    org.springframework: INFO
+    org.example: DEBUG
 
 phone-to-country:
   calling-code-wiki:

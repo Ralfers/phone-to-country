@@ -16,13 +16,13 @@ public class PhoneToCountryExceptionHandler {
 
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity<ValidationErrors> handleValidationException(ValidationException validationException) {
-        log.error("Validation exception occurred: {}", validationException.getMessage(), validationException);
+        log.error("Validation exception occurred: {}", validationException.getMessage());
         return new ResponseEntity<>(validationException.getValidationErrors(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<ApiErrors> handleApiException(ApiException apiException) {
-        log.error("API exception occurred: {}", apiException.getMessage(), apiException);
+        log.error("API exception occurred: {}", apiException.getMessage());
         return new ResponseEntity<>(apiException.getErrors(), apiException.getHttpStatus());
     }
 
