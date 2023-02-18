@@ -25,7 +25,7 @@ public class PhoneToCountryController {
 
     @GetMapping(path = "/country", produces = MediaType.APPLICATION_JSON_VALUE)
     public CountryCodeResponse getCountryCode(@Valid CountryCodeRequest countryParams, BindingResult bindingResult) throws Exception {
-        log.debug("Identifying country code from phone number {}", countryParams.getPhoneNumber());
+        log.debug("Finding country code from phone number {}", countryParams.getPhoneNumber());
         if (bindingResult.hasErrors()) {
             throw new ValidationException("Country code request validation failed", bindingResult);
         }
@@ -36,6 +36,7 @@ public class PhoneToCountryController {
                     String.format("Country codes not found for phone number %s", countryParams.getPhoneNumber()), HttpStatus.BAD_REQUEST);
         }
 
+        log.debug("Found the following country codes for phone number {}: {}", countryParams.getPhoneNumber(), countryCodes);
         return new CountryCodeResponse(countryCodes);
     }
 }
