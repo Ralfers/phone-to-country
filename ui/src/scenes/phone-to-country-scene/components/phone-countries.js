@@ -33,7 +33,7 @@ const PhoneCountries = props => {
   const mapCodesToIcons = () => {
     return countryCodes.map(countryCode => {
       const Flag = Flags[countryCode]
-      return !Flag ? <Flag style={flagStyle} key={countryCode} title={countryCode} /> : <UnknownCountryIcon style={unknownFlagStyle} key={countryCode} title={countryCode} />
+      return Flag ? <Flag style={flagStyle} key={countryCode} title={countryCode} /> : <UnknownCountryIcon style={unknownFlagStyle} key={countryCode} title={countryCode} />
     })
   }
 
@@ -41,7 +41,7 @@ const PhoneCountries = props => {
 
   return (
     <div style={containerStyle}>
-      <Form.Label style={labelStyle}>The phone number is from the following countries:</Form.Label>
+      <Form.Label style={labelStyle}>The phone number is from the following countries/regions:</Form.Label>
       {mapCodesToIcons()}
     </div>
   )

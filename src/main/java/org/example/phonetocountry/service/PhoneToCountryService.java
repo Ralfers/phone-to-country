@@ -23,10 +23,10 @@ import java.util.regex.Pattern;
 public class PhoneToCountryService {
 
     private static final Pattern CALLING_CODE_ENTRY_PATTERN = Pattern.compile("(\\+\\d+(?:\\s*\\d+)*):\\s*([A-Z]{2}(?:,\\s*[A-Z]{2})*)");
-    private static final int MAX_CALLING_CODE_DIGITS = 4;
 
     private final PhoneToCountryProperties phoneToCountryProperties;
     private final Map<String, List<String>> callingCodeToCountryMap = new HashMap<>();
+    private int maxCallingCodeDigits = 0;
 
     @Autowired
     public PhoneToCountryService(ConfigurableApplicationContext applicationContext, PhoneToCountryProperties phoneToCountryProperties) {
@@ -41,7 +41,7 @@ public class PhoneToCountryService {
     }
 
     public List<String> getCountryCodes(String phoneNumber) {
-        for (int i = MAX_CALLING_CODE_DIGITS; i > 0; i--) {
+        for (int i = maxCallingCodeDigits; i > 0; i--) {
             String prefix = phoneNumber.substring(0, i + 1);
             List<String> countryCodes = callingCodeToCountryMap.get(prefix);
             if (countryCodes != null) {
@@ -76,6 +76,11 @@ public class PhoneToCountryService {
             String callingCode = matchResult.group(1).replaceAll("\\s", "");
             String countryCodes = matchResult.group(2);
             callingCodeToCountryMap.put(callingCode, Arrays.asList(countryCodes.split(",\\s*")));
+
+            int callingCodeDigits = callingCode.length() - 1;
+            if (callingCodeDigits > maxCallingCodeDigits) {
+                maxCallingCodeDigits = callingCodeDigits;
+            }
         });
     }
 

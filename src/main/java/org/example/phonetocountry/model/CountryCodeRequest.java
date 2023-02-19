@@ -12,6 +12,6 @@ import lombok.Setter;
 public class CountryCodeRequest {
 
     @NotNull
-    @Pattern(regexp = "^\\+\\d{7,15}$", message = "Phone number must be in the E.164 format with up to 15 digits, e.g.\"+441514960453\"")
+    @Pattern(regexp = "^\\+\\d{7,15}$", message = "Phone number must be in the E.164 format with 7-15 digits, e.g. \"+441514960453\"")
     String phoneNumber;
 }
