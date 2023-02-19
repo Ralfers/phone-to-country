@@ -37,8 +37,6 @@ const PhoneCountries = props => {
     })
   }
 
-   const flagIcons = mapCodesToIcons()
-
   return (
     <div style={containerStyle}>
       <Form.Label style={labelStyle}>The phone number is from the following countries/regions:</Form.Label>

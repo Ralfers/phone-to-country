@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import Form from 'react-bootstrap/Form'
 
@@ -14,10 +14,6 @@ const inputStyle = {
   height: '100%',
   display: 'inline',
   paddingLeft: '3px',
-}
-
-const alertStyle = {
-  width: '200px',
 }
 
 const PhoneInput = props => {
