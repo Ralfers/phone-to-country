@@ -44,8 +44,6 @@ public class PhoneToCountryServiceTest {
     public void testCorrectCountryCodesAreReturned(String phoneNumber, List<String> expectedCountryCodes) {
         // when
         List<String> countryCodes = phoneToCountryService.getCountryCodes(phoneNumber);
-        System.out.println("countryCodes: " + countryCodes);
-        System.out.println("expectedCountryCodes: " + expectedCountryCodes);
 
         // then
         assertThat(countryCodes, expectedCountryCodes != null
