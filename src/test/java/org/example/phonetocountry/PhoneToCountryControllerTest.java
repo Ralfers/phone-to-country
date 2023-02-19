@@ -52,8 +52,7 @@ public class PhoneToCountryControllerTest {
     @ParameterizedTest
     @MethodSource("invalidCountryCodeRequestParamSource")
     public void testCountryCodeRequestParamsAreValidated(String invalidPhoneNumber) throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders
-                .get("/country")
+        mockMvc.perform(MockMvcRequestBuilders.get("/country-codes")
                 .queryParam("phoneNumber", invalidPhoneNumber))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
@@ -69,7 +68,7 @@ public class PhoneToCountryControllerTest {
         Mockito.when(phoneToCountryService.getCountryCodes(validPhoneNumber)).thenReturn(List.of("GB", "GG", "IM", "JE"));
 
         // when - then
-        mockMvc.perform(MockMvcRequestBuilders.get("/country")
+        mockMvc.perform(MockMvcRequestBuilders.get("/country-codes")
                 .queryParam("phoneNumber", validPhoneNumber))
                 .andDo(print())
                 .andExpect(status().isOk())

@@ -23,7 +23,7 @@ public class PhoneToCountryController {
 
     private final PhoneToCountryService phoneToCountryService;
 
-    @GetMapping(path = "/country", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/country-codes", produces = MediaType.APPLICATION_JSON_VALUE)
     public CountryCodeResponse getCountryCode(@Valid CountryCodeRequest countryParams, BindingResult bindingResult) throws Exception {
         log.debug("Finding country code from phone number {}", countryParams.getPhoneNumber());
         if (bindingResult.hasErrors()) {

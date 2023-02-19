@@ -33,7 +33,7 @@ const PhoneToCountryScene = () => {
   const [countryCodes, setCountryCodes] = useState([])
 
   const getCountryCodes = () => {
-    fetch('/country?' + new URLSearchParams({
+    fetch('/country-codes?' + new URLSearchParams({
         phoneNumber: `+${phoneNumber}`,
     }))
     .then(response => {
